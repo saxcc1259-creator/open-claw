@@ -7,8 +7,16 @@
 }
 
 @layer base {
+  html {
+    @apply motion-safe:scroll-smooth;
+  }
+
   body {
     @apply bg-cream text-slate-800 font-sans;
+  }
+
+  section[id] {
+    @apply scroll-mt-20;
   }
 
   h1, h2, h3, h4, h5, h6 {
