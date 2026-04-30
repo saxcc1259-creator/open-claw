@@ -1,0 +1,3 @@
+## 2025-05-14 - Sticky Header Anchor Navigation & Mobile ARIA
+**Learning:** In single-page apps with sticky headers, anchor navigation (including skip links) causes the target content to be obscured by the header. Additionally, conditionally rendering mobile menus breaks `aria-controls` references if the target ID is missing from the DOM when closed.
+**Action:** Apply `scroll-mt-{height}` (e.g., `scroll-mt-20` for 80px) to all `section[id]` and the `#main-content` landmark. Keep the mobile menu container in the DOM and toggle visibility with CSS (`hidden`/`block`) to maintain a valid ARIA relationship.
