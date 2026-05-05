@@ -1,0 +1,3 @@
+## 2026-05-05 - Enhanced Navigation & Accessibility
+**Learning:** Sticky headers (80px) in single-page applications can obscure section headings when using anchor links. Providing a 'Skip to Content' link and using `scroll-margin-top` ensures better accessibility and a smoother user experience for keyboard and screen reader users. Additionally, mobile menus that toggle via conditional rendering lack the polish of CSS transitions; using `visibility` and `opacity` maintains accessibility while allowing for smooth animations.
+**Action:** Use `scroll-mt-20` for sections, implement a Skip Link targeting a `<main>` landmark, and refactor mobile menus to use transition-friendly CSS properties.
