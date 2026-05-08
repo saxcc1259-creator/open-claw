@@ -7,11 +7,29 @@
 }
 
 @layer base {
+  html {
+    @apply motion-safe:scroll-smooth;
+  }
+
   body {
     @apply bg-cream text-slate-800 font-sans;
   }
 
   h1, h2, h3, h4, h5, h6 {
     @apply font-serif;
+  }
+
+  section[id], #main-content {
+    @apply scroll-mt-20;
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-gold ring-offset-2;
+  }
+}
+
+@layer components {
+  .skip-link {
+    @apply sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-navy focus:text-white focus:px-6 focus:py-3 focus:font-bold focus:shadow-2xl focus:border-2 focus:border-gold;
   }
 }
