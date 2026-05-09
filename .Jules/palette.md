@@ -1,0 +1,3 @@
+## 2026-05-09 - Accessibility & Navigation Enhancement
+**Learning:** The landing page uses a 80px (h-20) sticky header. To prevent content overlap during anchor navigation (including skip links), use '@apply motion-safe:scroll-smooth' on the html element and apply '@apply scroll-mt-20' to both 'section[id]' tags and the '#main-content' landmark in 'src/index.css'.
+**Action:** Always implement a 'Skip to Content' link (styled with 'sr-only focus:not-sr-only') that targets a primary '<main id="main-content" tabIndex={-1} className="outline-none">' landmark element for correct programmatic focus management and accessibility.
