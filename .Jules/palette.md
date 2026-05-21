@@ -1,0 +1,3 @@
+## 2026-05-21 - Accessible Navigation & Global Focus Styles
+**Learning:** For SPAs with sticky headers, simply adding anchor links isn't enough; 'scroll-margin-top' is essential to ensure headings aren't obscured. Additionally, a 'Skip to Content' link paired with a programmatic focus shift (tabIndex={-1}) on a `<main>` landmark significantly improves the experience for keyboard-only users.
+**Action:** Always include 'scroll-mt-[header-height]' in global base styles for sections and landmarks when a sticky header is present. Pair skip links with semantic landmarks that have 'outline-none' to avoid unsightly focus rings on the container.
