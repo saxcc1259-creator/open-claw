@@ -1,0 +1,3 @@
+## 2025-05-14 - [Skip to Content & Sticky Header Offsets]
+**Learning:** Single-page applications with sticky headers often fail two critical accessibility/UX checks: 1) they lack a 'Skip to Content' link for keyboard users to bypass navigation, and 2) anchor link navigation (including skip links) can cause headings to be obscured by the fixed header if scroll-margins are not correctly applied.
+**Action:** Implement a 'Skip to Content' link targeting a `<main>` landmark. Apply `@apply motion-safe:scroll-smooth` to the html element and `scroll-mt-[header-height]` to the main content and section targets to ensure non-obscured, smooth transitions.
