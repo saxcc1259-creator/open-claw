@@ -1,0 +1,3 @@
+## 2025-05-14 - Accessible Anchor Navigation with Sticky Headers
+**Learning:** In single-page applications with sticky headers, standard anchor links often lead to content being obscured by the header. Combining a "Skip to Content" link with the `<main>` landmark and using Tailwind's `scroll-mt-{size}` utility (matching the header height) ensures that both keyboard and mouse-driven navigation land on visible, non-obscured content.
+**Action:** Always verify the height of sticky headers and apply a corresponding `scroll-mt` offset to all named section targets and the primary content landmark. Complement this with `motion-safe:scroll-smooth` on the html element for a more polished user experience.
