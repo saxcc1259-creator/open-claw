@@ -7,11 +7,25 @@
 }
 
 @layer base {
+  html {
+    @apply motion-safe:scroll-smooth;
+  }
+
   body {
     @apply bg-cream text-slate-800 font-sans;
   }
 
   h1, h2, h3, h4, h5, h6 {
     @apply font-serif;
+  }
+
+  section[id], #main-content {
+    @apply scroll-mt-20;
+  }
+}
+
+@layer components {
+  .skip-link {
+    @apply absolute top-4 left-4 z-[100] bg-navy text-white px-4 py-2 border-2 border-gold font-bold;
   }
 }
