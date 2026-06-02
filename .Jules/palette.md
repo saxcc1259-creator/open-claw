@@ -1,0 +1,3 @@
+## 2026-06-02 - Enhanced Keyboard Navigation and Anchor Scroll Alignment
+**Learning:** Single-page applications with sticky headers often suffer from "obscured focus" and "hidden anchor targets" where the header overlaps the destination content. Combining a "Skip to Content" link with semantic `<main>` landmarks and CSS `scroll-margin-top` ensures that keyboard users can bypass navigation and that all users land precisely where intended without content being buried under the UI.
+**Action:** Always implement a visible-on-focus skip link targeting a `<main id="main-content" tabIndex={-1}>` and use `scroll-mt-[header-height]` on all section anchors to respect the sticky header's footprint.
