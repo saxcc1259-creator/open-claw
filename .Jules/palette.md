@@ -1,0 +1,3 @@
+## 2026-06-07 - Sticky Header & Accessibility Landmarks
+**Learning:** Sticky headers (e.g., `h-20`) obscure anchor-linked section headings unless a scroll margin (`scroll-mt`) is applied. Additionally, a "Skip to Content" link is a critical accessibility requirement for bypass blocks, and it must target a landmark (like `<main>`) with `tabIndex={-1}` to ensure focus is correctly moved for all screen readers.
+**Action:** Always implement a `Skip to Content` link targeting a `<main>` landmark. When using sticky headers, apply a matching `scroll-mt` utility to all anchor targets and the main landmark to prevent content overlap.
