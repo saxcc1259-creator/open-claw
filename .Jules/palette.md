@@ -1,0 +1,3 @@
+## 2026-06-08 - Accessible Sticky Header Navigation
+**Learning:** In single-page applications with a sticky header, standard anchor links and skip-to-content links can cause content to be obscured by the header. Combining a semantic `<main>` landmark with `tabIndex={-1}` and CSS `scroll-margin-top` ensures that both keyboard and mouse navigation land on visible, accessible content without being hidden behind fixed UI elements.
+**Action:** When a project uses a sticky header, always apply `scroll-mt-[header-height]` to all section targets and the `#main-content` landmark. Use `@apply motion-safe:scroll-smooth` on the `html` element to provide a polished feel while respecting user motion preferences.
