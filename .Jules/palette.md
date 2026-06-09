@@ -1,0 +1,3 @@
+## 2026-06-08 - [Accessibility & Sticky Headers]
+**Learning:** For single-page apps with sticky headers, combine a 'Skip to Content' link targeting a `<main>` landmark (with tabIndex={-1}) with `scroll-mt-[header-height]` and `motion-safe:scroll-smooth` to ensure seamless and non-obscured keyboard navigation. The `tabIndex={-1}` allows programmatic focus shift for screen readers, while `outline-none` on the main landmark prevents a focus ring from appearing around the entire content block.
+**Action:** Always implement a skip-to-content link and ensure all section anchors have sufficient `scroll-margin-top` to account for sticky navigation bars.
