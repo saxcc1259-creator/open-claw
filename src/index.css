@@ -7,11 +7,19 @@
 }
 
 @layer base {
+  html {
+    @apply motion-safe:scroll-smooth;
+  }
+
   body {
     @apply bg-cream text-slate-800 font-sans;
   }
 
   h1, h2, h3, h4, h5, h6 {
     @apply font-serif;
+  }
+
+  .skip-link {
+    @apply sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-6 focus:py-3 focus:bg-navy focus:text-white focus:border-2 focus:border-gold focus:rounded-sm focus:font-bold focus:shadow-2xl;
   }
 }
