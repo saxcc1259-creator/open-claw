@@ -6,6 +6,7 @@ function App() {
 
   return (
     <div className="min-h-screen bg-cream selection:bg-gold/30">
+      <a href="#main-content" className="skip-link">Skip to Content</a>
       {/* Navigation */}
       <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gold/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -53,6 +54,7 @@ function App() {
         )}
       </nav>
 
+      <main id="main-content" tabIndex={-1} className="outline-none scroll-mt-20">
       {/* Hero Section */}
       <section className="relative h-[85vh] flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
@@ -92,7 +94,7 @@ function App() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-24 bg-white">
+      <section id="about" className="py-24 bg-white scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="relative">
@@ -141,7 +143,7 @@ function App() {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-24 bg-cream">
+      <section id="services" className="py-24 bg-cream scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
             <h2 className="text-gold uppercase tracking-[0.3em] font-semibold text-sm mb-4">Our Expertise</h2>
@@ -169,7 +171,7 @@ function App() {
       </section>
 
       {/* Areas Served Section */}
-      <section id="areas" className="py-24 bg-navy text-white overflow-hidden">
+      <section id="areas" className="py-24 bg-navy text-white overflow-hidden scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
@@ -208,7 +210,7 @@ function App() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-24 bg-white relative">
+      <section id="contact" className="py-24 bg-white relative scroll-mt-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-gold uppercase tracking-[0.3em] font-semibold text-sm mb-4">Contact</h2>
           <h3 className="text-4xl md:text-5xl font-serif text-navy mb-8">Ready to Start Your Journey?</h3>
@@ -228,6 +230,7 @@ function App() {
           </div>
         </div>
       </section>
+      </main>
 
       {/* Footer */}
       <footer className="bg-navy py-16 text-white border-t border-gold/10">
