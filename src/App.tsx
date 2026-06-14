@@ -6,6 +6,13 @@ function App() {
 
   return (
     <div className="min-h-screen bg-cream selection:bg-gold/30">
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-navy focus:text-gold focus:px-4 focus:py-2 focus:border-2 focus:border-gold outline-none"
+      >
+        Skip to content
+      </a>
+
       {/* Navigation */}
       <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gold/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -53,8 +60,9 @@ function App() {
         )}
       </nav>
 
-      {/* Hero Section */}
-      <section className="relative h-[85vh] flex items-center overflow-hidden">
+      <main id="main-content" tabIndex={-1} className="outline-none">
+        {/* Hero Section */}
+        <section className="relative h-[85vh] flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-navy/40 z-10"></div>
           <img
@@ -179,7 +187,7 @@ function App() {
                 Expert knowledge and representation across Mid-City and surrounding iconic Los Angeles neighborhoods.
               </p>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 {[
                   "Mid-City",
                   "Arlington Heights",
@@ -187,12 +195,12 @@ function App() {
                   "Wilshire Highlands",
                   "Los Angeles County"
                 ].map((area, idx) => (
-                  <div key={idx} className="flex items-center space-x-4 border-l border-gold/30 pl-6 py-2">
+                  <li key={idx} className="flex items-center space-x-4 border-l border-gold/30 pl-6 py-2">
                     <div className="w-2 h-2 bg-gold rotate-45"></div>
                     <span className="text-xl font-light">{area}</span>
-                  </div>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
 
             <div className="relative h-[400px] lg:h-[600px]">
@@ -227,7 +235,8 @@ function App() {
             </a>
           </div>
         </div>
-      </section>
+        </section>
+      </main>
 
       {/* Footer */}
       <footer className="bg-navy py-16 text-white border-t border-gold/10">
