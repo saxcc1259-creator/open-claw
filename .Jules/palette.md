@@ -1,0 +1,4 @@
+## 2026-06-08 - Skip Link and Sticky Header Offset
+**Learning:** For single-page applications with a sticky header, a 'Skip to Content' link must be paired with a scroll-margin offset on the target landmark (and other section anchors). Using `scroll-mt-[header-height]` (e.g., `scroll-mt-20` for an 80px header) prevents the focused content or navigated section from being obscured by the fixed header. Additionally, the `<main>` landmark requires `tabIndex={-1}` and `outline-none` to receive programmatic focus from the skip link without creating an unwanted focus ring around the entire content area.
+
+**Action:** Always implement a 'Skip to Content' link as the first focusable element in the app, target a `<main>` landmark, and apply global CSS for smooth scrolling and header-aware scroll offsets to all section anchors.
