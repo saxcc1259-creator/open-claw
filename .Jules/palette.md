@@ -1,0 +1,3 @@
+## 2026-06-08 - Accessible and Smooth Mobile Navigation
+**Learning:** Mobile navigation components must use dynamic ARIA attributes ('aria-expanded' and 'aria-controls') to be accessible to screen readers. To support CSS transitions (like opacity/max-height) for a better UX, avoid conditional rendering or the 'hidden' class which breaks animations; instead, use 'visibility: visible/invisible', 'opacity', and 'max-height' to ensure the menu remains in the DOM for screen readers while animating smoothly for sighted users.
+**Action:** Implement 'aria-expanded', 'aria-controls', and a CSS-based transition for the mobile menu in src/App.tsx.
