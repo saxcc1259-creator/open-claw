@@ -30,8 +30,10 @@ function App() {
             <div className="md:hidden flex items-center">
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="text-navy p-2"
+                className="text-navy p-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 rounded-sm"
                 aria-label="Toggle menu"
+                aria-expanded={isMenuOpen}
+                aria-controls="mobile-menu"
               >
                 {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
               </button>
@@ -40,17 +42,20 @@ function App() {
         </div>
 
         {/* Mobile Nav */}
-        {isMenuOpen && (
-          <div className="md:hidden bg-white border-b border-gold/10 px-4 py-6 space-y-4 shadow-xl">
-            <a href="#about" onClick={() => setIsMenuOpen(false)} className="block text-navy/80 hover:text-navy font-medium text-lg">About</a>
-            <a href="#services" onClick={() => setIsMenuOpen(false)} className="block text-navy/80 hover:text-navy font-medium text-lg">Services</a>
-            <a href="#areas" onClick={() => setIsMenuOpen(false)} className="block text-navy/80 hover:text-navy font-medium text-lg">Areas</a>
-            <a href="tel:2137614298" className="flex items-center text-gold font-bold text-lg pt-2">
-              <Phone className="w-5 h-5 mr-2" />
-              (213) 761-4298
-            </a>
-          </div>
-        )}
+        <div
+          id="mobile-menu"
+          className={`md:hidden bg-white border-b border-gold/10 px-4 space-y-4 shadow-xl transition-all duration-300 ease-in-out overflow-hidden ${
+            isMenuOpen ? 'max-h-96 py-6 opacity-100 visible' : 'max-h-0 py-0 opacity-0 invisible'
+          }`}
+        >
+          <a href="#about" onClick={() => setIsMenuOpen(false)} className="block text-navy/80 hover:text-navy font-medium text-lg">About</a>
+          <a href="#services" onClick={() => setIsMenuOpen(false)} className="block text-navy/80 hover:text-navy font-medium text-lg">Services</a>
+          <a href="#areas" onClick={() => setIsMenuOpen(false)} className="block text-navy/80 hover:text-navy font-medium text-lg">Areas</a>
+          <a href="tel:2137614298" className="flex items-center text-gold font-bold text-lg pt-2">
+            <Phone className="w-5 h-5 mr-2" />
+            (213) 761-4298
+          </a>
+        </div>
       </nav>
 
       {/* Hero Section */}
