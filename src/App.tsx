@@ -6,6 +6,13 @@ function App() {
 
   return (
     <div className="min-h-screen bg-cream selection:bg-gold/30">
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-6 focus:py-3 focus:bg-navy focus:text-white focus:border-2 focus:border-gold focus:rounded-sm focus:font-bold focus:shadow-2xl transition-all"
+      >
+        Skip to Content
+      </a>
+
       {/* Navigation */}
       <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gold/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -53,7 +60,8 @@ function App() {
         )}
       </nav>
 
-      {/* Hero Section */}
+      <main id="main-content" tabIndex={-1} className="outline-none">
+        {/* Hero Section */}
       <section className="relative h-[85vh] flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-navy/40 z-10"></div>
@@ -228,6 +236,7 @@ function App() {
           </div>
         </div>
       </section>
+      </main>
 
       {/* Footer */}
       <footer className="bg-navy py-16 text-white border-t border-gold/10">
