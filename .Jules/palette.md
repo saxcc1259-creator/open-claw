@@ -1,0 +1,3 @@
+## 2026-06-08 - Accessible Mobile Navigation & Semantic Foundation
+**Learning:** For single-page applications with sticky headers, basic anchor links are often obscured by the header. Combining a 'Skip to Content' link targeting a `<main>` landmark (with `tabIndex={-1}`) with `scroll-mt` and `motion-safe:scroll-smooth` ensures seamless, non-obscured keyboard and mouse navigation. Additionally, CSS-based transitions for mobile menus (using visibility and max-height) provide a better UX than conditional rendering as they support animations while maintaining accessibility.
+**Action:** Always implement a semantic `<main>` landmark with a corresponding skip link and global scroll-offsets for fixed headers to prevent content overlap.
