@@ -7,11 +7,23 @@
 }
 
 @layer base {
+  html {
+    @apply motion-safe:scroll-smooth;
+  }
+
+  section[id], #main-content {
+    @apply scroll-mt-20;
+  }
+
   body {
     @apply bg-cream text-slate-800 font-sans;
   }
 
   h1, h2, h3, h4, h5, h6 {
     @apply font-serif;
+  }
+
+  a, button {
+    @apply outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 rounded-sm transition-shadow;
   }
 }
