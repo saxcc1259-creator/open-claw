@@ -6,6 +6,13 @@ function App() {
 
   return (
     <div className="min-h-screen bg-cream selection:bg-gold/30">
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-navy focus:text-gold focus:px-6 focus:py-3 focus:font-bold focus:shadow-2xl focus:outline-none focus:ring-2 focus:ring-gold"
+      >
+        Skip to Content
+      </a>
+
       {/* Navigation */}
       <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gold/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -30,8 +37,10 @@ function App() {
             <div className="md:hidden flex items-center">
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="text-navy p-2"
+                className="text-navy p-2 focus-visible:ring-inset"
                 aria-label="Toggle menu"
+                aria-expanded={isMenuOpen}
+                aria-controls="mobile-menu"
               >
                 {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
               </button>
@@ -40,8 +49,13 @@ function App() {
         </div>
 
         {/* Mobile Nav */}
-        {isMenuOpen && (
-          <div className="md:hidden bg-white border-b border-gold/10 px-4 py-6 space-y-4 shadow-xl">
+        <div
+          id="mobile-menu"
+          className={`md:hidden bg-white border-b border-gold/10 px-4 transition-all duration-300 ease-in-out overflow-hidden shadow-xl ${
+            isMenuOpen ? 'max-h-96 py-6 opacity-100 visible' : 'max-h-0 py-0 opacity-0 invisible'
+          }`}
+        >
+          <div className="space-y-4">
             <a href="#about" onClick={() => setIsMenuOpen(false)} className="block text-navy/80 hover:text-navy font-medium text-lg">About</a>
             <a href="#services" onClick={() => setIsMenuOpen(false)} className="block text-navy/80 hover:text-navy font-medium text-lg">Services</a>
             <a href="#areas" onClick={() => setIsMenuOpen(false)} className="block text-navy/80 hover:text-navy font-medium text-lg">Areas</a>
@@ -50,11 +64,12 @@ function App() {
               (213) 761-4298
             </a>
           </div>
-        )}
+        </div>
       </nav>
 
-      {/* Hero Section */}
-      <section className="relative h-[85vh] flex items-center overflow-hidden">
+      <main id="main-content" tabIndex={-1} className="outline-none">
+        {/* Hero Section */}
+        <section className="relative h-[85vh] flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-navy/40 z-10"></div>
           <img
@@ -227,7 +242,8 @@ function App() {
             </a>
           </div>
         </div>
-      </section>
+        </section>
+      </main>
 
       {/* Footer */}
       <footer className="bg-navy py-16 text-white border-t border-gold/10">
