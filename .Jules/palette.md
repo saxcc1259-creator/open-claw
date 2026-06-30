@@ -1,0 +1,3 @@
+## 2026-06-08 - CSS Visibility for Accessible Animations
+**Learning:** Using conditional rendering (`{isOpen && <Component />}`) for menus prevents CSS exit animations and can cause screen readers to lose context abruptly. Using a combination of `opacity`, `visibility`, and `max-height` (or similar) allows for smooth transitions while ensuring the element is correctly removed from the accessibility tree when `hidden` (via `visibility: invisible` or `display: none`) and remains available in the DOM for stable state management.
+**Action:** Prefer CSS-based visibility toggles over conditional mounting for global navigation components to support animations and better screen reader stability.
