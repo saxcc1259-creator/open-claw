@@ -7,11 +7,21 @@
 }
 
 @layer base {
+  html {
+    @apply scroll-pt-20 motion-safe:scroll-smooth;
+  }
+
   body {
     @apply bg-cream text-slate-800 font-sans;
   }
 
   h1, h2, h3, h4, h5, h6 {
     @apply font-serif;
+  }
+}
+
+@layer components {
+  .skip-link {
+    @apply sr-only focus:not-sr-only fixed top-4 left-4 z-[100] bg-navy text-white px-4 py-2 border-2 border-gold font-bold;
   }
 }
