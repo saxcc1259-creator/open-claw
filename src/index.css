@@ -14,4 +14,8 @@
   h1, h2, h3, h4, h5, h6 {
     @apply font-serif;
   }
+
+  a, button {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2;
+  }
 }
