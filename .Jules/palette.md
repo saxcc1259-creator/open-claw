@@ -1,0 +1,3 @@
+## 2026-06-08 - [Accessible Mobile Menu Transitions]
+**Learning:** Conditional rendering of mobile menus (`{isOpen && <Menu />}`) breaks CSS transitions and can cause issues for screen readers if focus is not managed carefully. Using visibility-based transitions (opacity, max-height, visibility) ensures smooth animations while maintaining accessibility. Additionally, global `focus-visible` indicators are critical for keyboard navigation in custom-themed Tailwind apps.
+**Action:** Use `opacity`, `visibility`, and `max-height` for menu transitions instead of conditional rendering. Always apply global `focus-visible` rings to interactive elements in `index.css`.
