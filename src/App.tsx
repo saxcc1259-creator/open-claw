@@ -6,8 +6,9 @@ function App() {
 
   return (
     <div className="min-h-screen bg-cream selection:bg-gold/30">
+      <a href="#main-content" className="sr-only focus:not-sr-only fixed top-4 left-4 z-[100] bg-navy text-white px-4 py-2 rounded-sm border border-gold font-medium transition-all">Skip to content</a>
       {/* Navigation */}
-      <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gold/10">
+      <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gold/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-20 items-center">
             <div className="flex flex-col">
@@ -21,7 +22,7 @@ function App() {
               <a href="#services" className="text-navy/80 hover:text-navy transition-colors font-medium">Services</a>
               <a href="#areas" className="text-navy/80 hover:text-navy transition-colors font-medium">Areas</a>
               <a href="tel:2137614298" className="bg-navy text-white px-5 py-2.5 rounded-sm hover:bg-navy/90 transition-all font-semibold flex items-center">
-                <Phone className="w-4 h-4 mr-2" />
+                <Phone className="w-4 h-4 mr-2" aria-hidden="true" />
                 (213) 761-4298
               </a>
             </div>
@@ -32,8 +33,10 @@ function App() {
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 className="text-navy p-2"
                 aria-label="Toggle menu"
+                aria-expanded={isMenuOpen}
+                aria-controls="mobile-menu"
               >
-                {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                {isMenuOpen ? <X className="w-6 h-6" aria-hidden="true" /> : <Menu className="w-6 h-6" aria-hidden="true" />}
               </button>
             </div>
           </div>
@@ -41,18 +44,19 @@ function App() {
 
         {/* Mobile Nav */}
         {isMenuOpen && (
-          <div className="md:hidden bg-white border-b border-gold/10 px-4 py-6 space-y-4 shadow-xl">
+          <div id="mobile-menu" className="md:hidden bg-white border-b border-gold/10 px-4 py-6 space-y-4 shadow-xl">
             <a href="#about" onClick={() => setIsMenuOpen(false)} className="block text-navy/80 hover:text-navy font-medium text-lg">About</a>
             <a href="#services" onClick={() => setIsMenuOpen(false)} className="block text-navy/80 hover:text-navy font-medium text-lg">Services</a>
             <a href="#areas" onClick={() => setIsMenuOpen(false)} className="block text-navy/80 hover:text-navy font-medium text-lg">Areas</a>
             <a href="tel:2137614298" className="flex items-center text-gold font-bold text-lg pt-2">
-              <Phone className="w-5 h-5 mr-2" />
+              <Phone className="w-5 h-5 mr-2" aria-hidden="true" />
               (213) 761-4298
             </a>
           </div>
         )}
-      </nav>
+      </header>
 
+      <main id="main-content" tabIndex={-1} className="outline-none">
       {/* Hero Section */}
       <section className="relative h-[85vh] flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
@@ -149,22 +153,22 @@ function App() {
             <div className="w-24 h-1 bg-gold mx-auto mt-8"></div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               { title: "Buying", desc: "Personalized search and expert negotiation to find your perfect home." },
               { title: "Selling", desc: "Strategic marketing and pricing to ensure you get top dollar for your property." },
               { title: "Investment Properties", desc: "Data-driven insights to help you build and grow your real estate portfolio." },
               { title: "Multi-Family Homes", desc: "Specialized expertise in duplexes, triplexes, and larger residential income properties." }
             ].map((service, idx) => (
-              <div key={idx} className="bg-white p-10 shadow-sm border border-gold/5 hover:border-gold/20 transition-all group">
+              <li key={idx} className="bg-white p-10 shadow-sm border border-gold/5 hover:border-gold/20 transition-all group">
                 <div className="w-12 h-12 bg-navy text-gold flex items-center justify-center mb-6 group-hover:bg-gold group-hover:text-navy transition-colors">
                   <span className="font-serif text-xl font-bold">{idx + 1}</span>
                 </div>
                 <h4 className="text-xl font-serif text-navy mb-4 font-bold">{service.title}</h4>
                 <p className="text-slate-600 leading-relaxed">{service.desc}</p>
-              </div>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </section>
 
@@ -179,7 +183,7 @@ function App() {
                 Expert knowledge and representation across Mid-City and surrounding iconic Los Angeles neighborhoods.
               </p>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 {[
                   "Mid-City",
                   "Arlington Heights",
@@ -187,12 +191,12 @@ function App() {
                   "Wilshire Highlands",
                   "Los Angeles County"
                 ].map((area, idx) => (
-                  <div key={idx} className="flex items-center space-x-4 border-l border-gold/30 pl-6 py-2">
-                    <div className="w-2 h-2 bg-gold rotate-45"></div>
+                  <li key={idx} className="flex items-center space-x-4 border-l border-gold/30 pl-6 py-2">
+                    <div className="w-2 h-2 bg-gold rotate-45" aria-hidden="true"></div>
                     <span className="text-xl font-light">{area}</span>
-                  </div>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
 
             <div className="relative h-[400px] lg:h-[600px]">
@@ -228,6 +232,7 @@ function App() {
           </div>
         </div>
       </section>
+      </main>
 
       {/* Footer */}
       <footer className="bg-navy py-16 text-white border-t border-gold/10">
