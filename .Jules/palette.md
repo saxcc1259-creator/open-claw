@@ -1,0 +1,3 @@
+## 2026-06-08 - Semantic Foundation & Sticky Headers
+**Learning:** Combining a 'Skip to Content' link with a sticky header requires both `scroll-padding-top` on the root element and `scroll-margin-top` on anchor targets to prevent content from being obscured by the fixed navigation bar. Additionally, the `<main>` landmark requires `tabIndex={-1}` and `outline-none` to receive programmatic focus from the skip link without creating a persistent visual border around the entire content area.
+**Action:** Always implement `scroll-pt-[header-height]` on the `html` element and `tabIndex={-1}` on the target landmark when adding skip-link functionality in projects with sticky navigation.
