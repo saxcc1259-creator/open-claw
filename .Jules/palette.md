@@ -1,0 +1,3 @@
+## 2026-07-13 - Semantic Foundation for Accessibility
+**Learning:** A sticky header can often obscure content when navigating via anchor links or skip-to-content links. Using `scroll-pt-20` (to match the 80px header) on the HTML element ensures that section headings remain visible upon navigation. Additionally, providing a "Skip to Content" link and wrapping the core page content in a `<main>` landmark with `tabIndex={-1}` establishes a baseline for keyboard and screen reader accessibility that is often overlooked in single-page landing pages.
+**Action:** Always implement a semantic foundation (skip-link, landmarks, and scroll-offsets) early in the development process to avoid retrofitting accessibility later.
