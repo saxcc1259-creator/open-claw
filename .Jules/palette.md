@@ -1,0 +1,3 @@
+## 2026-07-16 - Semantic Accessibility Foundation
+**Learning:** For single-page apps with sticky headers, combining a 'Skip to Content' link targeting a '<main>' landmark (with tabIndex={-1}) with `scroll-pt-[header-height]` and `motion-safe:scroll-smooth` on the html element ensures seamless and non-obscured keyboard navigation. This provides a baseline for accessibility that feels "invisible" but significantly improves the experience for power users and those using assistive technology.
+**Action:** Always implement this "Semantic Foundation" pattern in new SPAs to ensure consistent focus management and scroll behavior.
