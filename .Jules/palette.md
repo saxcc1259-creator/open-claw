@@ -1,0 +1,3 @@
+## 2026-07-26 - Semantic Foundation and Keyboard Navigation
+**Learning:** Combining 'Skip to Content' links, semantic `<main>` landmarks with tabIndex={-1}, and global focus styles ensures users who rely on screen readers and keyboard navigation can seamlessly jump past repetitive navigation headers without breaking visual focus. In modern sticky-header applications, aligning scroll-padding with the header's height is crucial to prevent sections from being obscured upon navigation.
+**Action:** Always define a focusable `#main-content` container with `tabIndex={-1}` and outline-none, while using CSS `scroll-padding-top` on the HTML element matching the sticky header height.
