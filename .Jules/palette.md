@@ -1,0 +1,3 @@
+## 2026-08-04 - Semantic Foundations for Single-Page Applications
+**Learning:** For single-page apps with a sticky header, standard anchor links often result in target elements being obscured under the header. Combining a "Skip to Content" link targeting a `<main>` landmark (with `tabIndex={-1}`) along with standard scroll offset styles (`scroll-pt-20` and `motion-safe:scroll-smooth`) resolves both keyboard accessibility focus problems and visual layout overlaps.
+**Action:** Always implement a dedicated `<main>` landmark with a corresponding skip link positioned as the first tab-stop, and use CSS or Tailwind's layer directives to handle top offsets for local anchor navigation.
