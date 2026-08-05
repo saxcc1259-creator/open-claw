@@ -1,0 +1,3 @@
+## 2026-08-05 - Semantic Foundation and Navigability
+**Learning:** Combining a "Skip to Content" link with scroll-offset styling (`scroll-pt-20`) in a single-page app containing a sticky header provides an elegant, keyboard-accessible baseline. Standardizing the brand signature gold (#D4AF37) focus ring across all interactive tags significantly enhances keyboard-nav visibility without visual noise.
+**Action:** Always wrap main interactive content in a semantic `<main>` tag with `tabIndex={-1}` to allow programmatic focus targeting, and apply correct offsets on anchor headers to prevent content from being cut off by sticky navigations.
