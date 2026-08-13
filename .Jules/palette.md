@@ -1,0 +1,3 @@
+## 2026-08-13 - Cohesive Semantic Foundation Accessibility Update
+**Learning:** For single-page apps with a sticky header, combining a 'Skip to Content' link targeting a `<main>` landmark (with `tabIndex={-1}`) with global scroll-padding and focus-visible outlines ensures seamless keyboard and screen reader navigation. It prevents visual overlay issues during navigation and establishes an essential foundation for accessibility.
+**Action:** When implementing sticky headers in future single-page applications, always include a skip-to-content link as the first focusable element, target a `<main>` tag with `tabIndex={-1}`, and configure `scroll-padding-top` on the root or base layer of the CSS.
