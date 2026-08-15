@@ -6,6 +6,13 @@ function App() {
 
   return (
     <div className="min-h-screen bg-cream selection:bg-gold/30">
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 z-[100] bg-navy text-white px-4 py-2 rounded shadow-lg focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 font-medium"
+      >
+        Skip to main content
+      </a>
+
       {/* Navigation */}
       <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gold/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -17,11 +24,11 @@ function App() {
 
             {/* Desktop Nav */}
             <div className="hidden md:flex items-center space-x-8">
-              <a href="#about" className="text-navy/80 hover:text-navy transition-colors font-medium">About</a>
-              <a href="#services" className="text-navy/80 hover:text-navy transition-colors font-medium">Services</a>
-              <a href="#areas" className="text-navy/80 hover:text-navy transition-colors font-medium">Areas</a>
-              <a href="tel:2137614298" className="bg-navy text-white px-5 py-2.5 rounded-sm hover:bg-navy/90 transition-all font-semibold flex items-center">
-                <Phone className="w-4 h-4 mr-2" />
+              <a href="#about" className="text-navy/80 hover:text-navy focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 rounded-sm transition-colors font-medium">About</a>
+              <a href="#services" className="text-navy/80 hover:text-navy focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 rounded-sm transition-colors font-medium">Services</a>
+              <a href="#areas" className="text-navy/80 hover:text-navy focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 rounded-sm transition-colors font-medium">Areas</a>
+              <a href="tel:2137614298" className="bg-navy text-white px-5 py-2.5 rounded-sm hover:bg-navy/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 transition-all font-semibold flex items-center">
+                <Phone className="w-4 h-4 mr-2" aria-hidden="true" />
                 (213) 761-4298
               </a>
             </div>
@@ -30,10 +37,12 @@ function App() {
             <div className="md:hidden flex items-center">
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="text-navy p-2"
-                aria-label="Toggle menu"
+                className="text-navy p-2 rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2"
+                aria-controls="mobile-menu"
+                aria-expanded={isMenuOpen}
+                aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
               >
-                {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                {isMenuOpen ? <X className="w-6 h-6" aria-hidden="true" /> : <Menu className="w-6 h-6" aria-hidden="true" />}
               </button>
             </div>
           </div>
@@ -41,7 +50,7 @@ function App() {
 
         {/* Mobile Nav */}
         {isMenuOpen && (
-          <div className="md:hidden bg-white border-b border-gold/10 px-4 py-6 space-y-4 shadow-xl">
+          <div id="mobile-menu" className="md:hidden bg-white border-b border-gold/10 px-4 py-6 space-y-4 shadow-xl">
             <a href="#about" onClick={() => setIsMenuOpen(false)} className="block text-navy/80 hover:text-navy font-medium text-lg">About</a>
             <a href="#services" onClick={() => setIsMenuOpen(false)} className="block text-navy/80 hover:text-navy font-medium text-lg">Services</a>
             <a href="#areas" onClick={() => setIsMenuOpen(false)} className="block text-navy/80 hover:text-navy font-medium text-lg">Areas</a>
@@ -53,6 +62,7 @@ function App() {
         )}
       </nav>
 
+      <main id="main-content" tabIndex={-1} className="outline-none">
       {/* Hero Section */}
       <section className="relative h-[85vh] flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
@@ -221,13 +231,14 @@ function App() {
             <p className="text-gold uppercase tracking-widest font-semibold text-sm mb-8">Call or text to schedule a consultation</p>
             <a
               href="tel:2137614298"
-              className="inline-block bg-navy text-white px-10 py-4 rounded-sm font-bold text-lg hover:bg-navy/90 transition-all shadow-lg"
+              className="inline-block bg-navy text-white px-10 py-4 rounded-sm font-bold text-lg hover:bg-navy/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 transition-all shadow-lg"
             >
               Get in Touch
             </a>
           </div>
         </div>
       </section>
+      </main>
 
       {/* Footer */}
       <footer className="bg-navy py-16 text-white border-t border-gold/10">
