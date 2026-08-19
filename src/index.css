@@ -7,6 +7,11 @@
 }
 
 @layer base {
+  html {
+    @apply motion-safe:scroll-smooth;
+    scroll-padding-top: 5rem;
+  }
+
   body {
     @apply bg-cream text-slate-800 font-sans;
   }
