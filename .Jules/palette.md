@@ -1,0 +1,3 @@
+## 2026-08-29 - Skip to Main Content & Sticky Header Offsets
+**Learning:** For single-page web applications using sticky headers (e.g., 80px / `h-20`), anchor links like "Skip to Content" and menu section links will scroll content under the header unless `scroll-padding-top` / `scroll-pt-20` and `motion-safe:scroll-smooth` are configured at the `html` root element level.
+**Action:** Always combine a top-level focusable skip-to-content link targeting `<main id="main-content" tabIndex={-1}>` with global `@layer base { html { @apply motion-safe:scroll-smooth scroll-pt-20; } }` in Tailwind CSS v4 to guarantee clean keyboard navigation without visual overlap.
