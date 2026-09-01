@@ -1,0 +1,3 @@
+## 2026-09-01 - Semantic Foundation & Sticky Header Navigation Pattern
+**Learning:** In single-page applications featuring a fixed top navigation header (e.g. h-20 / 80px), anchor navigation and skip links can cause section headings to be obscured underneath the sticky header if scroll offsets are omitted. Furthermore, skip links require a `<main id="main-content" tabIndex={-1}>` target to allow focus shift without persistent focus rings on the container.
+**Action:** Always pair a skip link and main landmark target with `scroll-pt-20` and `motion-safe:scroll-smooth` on the root `html` element to preserve accessible keyboard and anchor navigation while respecting user reduced-motion preferences.
