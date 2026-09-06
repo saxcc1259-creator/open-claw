@@ -1,0 +1,3 @@
+## 2026-09-06 - Semantic Foundation & Smooth Anchor Scrolling
+**Learning:** For single-page web applications featuring sticky header navigation, anchor links and keyboard skips will obscure section headings unless `scroll-padding-top` (e.g., `scroll-pt-20`) and `motion-safe:scroll-smooth` are configured on the root `html` element alongside programmatic target focus (`tabIndex={-1}`).
+**Action:** Always combine a 'Skip to Content' link targeting a `<main id="main-content" tabIndex={-1}>` landmark with dynamic `aria-expanded`/`aria-controls` on navigation toggles and `scroll-pt-20` on the root HTML element for seamless accessibility.
