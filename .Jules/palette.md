@@ -1,0 +1,3 @@
+## 2026-09-14 - Accessible Single-Page Navigation Baseline
+**Learning:** Single-page applications with fixed sticky headers obscure target content upon anchor jump and block keyboard/screen-reader navigation if a skip-to-content link and semantic `<main>` landmark are absent. Combining a skip link (`sr-only focus:not-sr-only`), a `<main id="main-content" tabIndex={-1}>` container, and `scroll-padding-top` on root element ensures seamless, accessible navigation without extra UI overhead.
+**Action:** Always include a skip-to-content link targeting a `<main>` landmark with `tabIndex={-1}` and configure scroll padding for sticky headers when building landing page components.
