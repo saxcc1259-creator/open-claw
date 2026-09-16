@@ -1,0 +1,3 @@
+## 2026-09-16 - Semantic Foundation & Sticky Header Scroll Padding
+**Learning:** Landing pages with fixed/sticky top navigation headers obscure section headings when targeted by anchor links or skip-to-content links unless explicit scroll-padding is configured on the root document element. Additionally, providing a main landmark with `tabIndex={-1}` and `outline-none` allows a Skip Link to programmatically shift focus to main content without drawing an unexpected outline around the whole section.
+**Action:** Always combine `motion-safe:scroll-smooth` and `scroll-pt-[header-height]` in `src/index.css` on the `html` layer alongside a `<main id="main-content" tabIndex={-1} className="outline-none">` wrapper and top-level skip-to-content link.
