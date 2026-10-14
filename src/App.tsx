@@ -6,6 +6,13 @@ function App() {
 
   return (
     <div className="min-h-screen bg-cream selection:bg-gold/30">
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[100] focus:px-4 focus:py-2 focus:bg-white focus:text-navy focus:font-bold focus:shadow-md focus:outline-none focus:ring-2 focus:ring-gold"
+      >
+        Skip to main content
+      </a>
+
       {/* Navigation */}
       <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gold/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -17,11 +24,11 @@ function App() {
 
             {/* Desktop Nav */}
             <div className="hidden md:flex items-center space-x-8">
-              <a href="#about" className="text-navy/80 hover:text-navy transition-colors font-medium">About</a>
-              <a href="#services" className="text-navy/80 hover:text-navy transition-colors font-medium">Services</a>
-              <a href="#areas" className="text-navy/80 hover:text-navy transition-colors font-medium">Areas</a>
-              <a href="tel:2137614298" className="bg-navy text-white px-5 py-2.5 rounded-sm hover:bg-navy/90 transition-all font-semibold flex items-center">
-                <Phone className="w-4 h-4 mr-2" />
+              <a href="#about" className="text-navy/80 hover:text-navy transition-colors font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 rounded-sm">About</a>
+              <a href="#services" className="text-navy/80 hover:text-navy transition-colors font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 rounded-sm">Services</a>
+              <a href="#areas" className="text-navy/80 hover:text-navy transition-colors font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 rounded-sm">Areas</a>
+              <a href="tel:2137614298" className="bg-navy text-white px-5 py-2.5 rounded-sm hover:bg-navy/90 transition-all font-semibold flex items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2">
+                <Phone className="w-4 h-4 mr-2" aria-hidden="true" />
                 (213) 761-4298
               </a>
             </div>
@@ -30,10 +37,12 @@ function App() {
             <div className="md:hidden flex items-center">
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="text-navy p-2"
-                aria-label="Toggle menu"
+                className="text-navy p-2 rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2"
+                aria-label={isMenuOpen ? "Close main navigation menu" : "Open main navigation menu"}
+                aria-expanded={isMenuOpen}
+                aria-controls="mobile-menu"
               >
-                {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                {isMenuOpen ? <X className="w-6 h-6" aria-hidden="true" /> : <Menu className="w-6 h-6" aria-hidden="true" />}
               </button>
             </div>
           </div>
@@ -41,18 +50,19 @@ function App() {
 
         {/* Mobile Nav */}
         {isMenuOpen && (
-          <div className="md:hidden bg-white border-b border-gold/10 px-4 py-6 space-y-4 shadow-xl">
-            <a href="#about" onClick={() => setIsMenuOpen(false)} className="block text-navy/80 hover:text-navy font-medium text-lg">About</a>
-            <a href="#services" onClick={() => setIsMenuOpen(false)} className="block text-navy/80 hover:text-navy font-medium text-lg">Services</a>
-            <a href="#areas" onClick={() => setIsMenuOpen(false)} className="block text-navy/80 hover:text-navy font-medium text-lg">Areas</a>
-            <a href="tel:2137614298" className="flex items-center text-gold font-bold text-lg pt-2">
-              <Phone className="w-5 h-5 mr-2" />
+          <div id="mobile-menu" className="md:hidden bg-white border-b border-gold/10 px-4 py-6 space-y-4 shadow-xl">
+            <a href="#about" onClick={() => setIsMenuOpen(false)} className="block text-navy/80 hover:text-navy font-medium text-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 rounded-sm">About</a>
+            <a href="#services" onClick={() => setIsMenuOpen(false)} className="block text-navy/80 hover:text-navy font-medium text-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 rounded-sm">Services</a>
+            <a href="#areas" onClick={() => setIsMenuOpen(false)} className="block text-navy/80 hover:text-navy font-medium text-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 rounded-sm">Areas</a>
+            <a href="tel:2137614298" className="flex items-center text-gold font-bold text-lg pt-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 rounded-sm">
+              <Phone className="w-5 h-5 mr-2" aria-hidden="true" />
               (213) 761-4298
             </a>
           </div>
         )}
       </nav>
 
+      <main id="main-content" tabIndex={-1} className="outline-none">
       {/* Hero Section */}
       <section className="relative h-[85vh] flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
@@ -76,13 +86,13 @@ function App() {
             <div className="flex flex-col sm:flex-row gap-4">
               <a
                 href="tel:2137614298"
-                className="bg-gold hover:bg-gold/90 text-navy px-8 py-4 rounded-sm font-bold text-lg transition-all text-center shadow-lg"
+                className="bg-gold hover:bg-gold/90 text-navy px-8 py-4 rounded-sm font-bold text-lg transition-all text-center shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2"
               >
                 Get a Free Consultation
               </a>
               <a
                 href="#services"
-                className="bg-white/10 backdrop-blur-sm border border-white/30 hover:bg-white/20 text-white px-8 py-4 rounded-sm font-bold text-lg transition-all text-center"
+                className="bg-white/10 backdrop-blur-sm border border-white/30 hover:bg-white/20 text-white px-8 py-4 rounded-sm font-bold text-lg transition-all text-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2"
               >
                 View Services
               </a>
@@ -221,13 +231,14 @@ function App() {
             <p className="text-gold uppercase tracking-widest font-semibold text-sm mb-8">Call or text to schedule a consultation</p>
             <a
               href="tel:2137614298"
-              className="inline-block bg-navy text-white px-10 py-4 rounded-sm font-bold text-lg hover:bg-navy/90 transition-all shadow-lg"
+              className="inline-block bg-navy text-white px-10 py-4 rounded-sm font-bold text-lg hover:bg-navy/90 transition-all shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2"
             >
               Get in Touch
             </a>
           </div>
         </div>
       </section>
+      </main>
 
       {/* Footer */}
       <footer className="bg-navy py-16 text-white border-t border-gold/10">
@@ -244,9 +255,9 @@ function App() {
               <p className="text-white/60 uppercase tracking-widest text-xs">Headquarters</p>
               <p className="text-lg">Los Angeles, CA</p>
               <div className="pt-4 flex md:justify-end space-x-6">
-                <a href="#about" className="text-white/60 hover:text-white transition-colors">About</a>
-                <a href="#services" className="text-white/60 hover:text-white transition-colors">Services</a>
-                <a href="#areas" className="text-white/60 hover:text-white transition-colors">Areas</a>
+                <a href="#about" className="text-white/60 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 rounded-sm">About</a>
+                <a href="#services" className="text-white/60 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 rounded-sm">Services</a>
+                <a href="#areas" className="text-white/60 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 rounded-sm">Areas</a>
               </div>
             </div>
           </div>
