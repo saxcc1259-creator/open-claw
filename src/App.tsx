@@ -6,6 +6,13 @@ function App() {
 
   return (
     <div className="min-h-screen bg-cream selection:bg-gold/30">
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:z-[100] focus:p-4 focus:bg-white focus:text-navy focus:outline-none focus:ring-2 focus:ring-gold"
+      >
+        Skip to main content
+      </a>
+
       {/* Navigation */}
       <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gold/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -20,8 +27,8 @@ function App() {
               <a href="#about" className="text-navy/80 hover:text-navy transition-colors font-medium">About</a>
               <a href="#services" className="text-navy/80 hover:text-navy transition-colors font-medium">Services</a>
               <a href="#areas" className="text-navy/80 hover:text-navy transition-colors font-medium">Areas</a>
-              <a href="tel:2137614298" className="bg-navy text-white px-5 py-2.5 rounded-sm hover:bg-navy/90 transition-all font-semibold flex items-center">
-                <Phone className="w-4 h-4 mr-2" />
+              <a href="tel:2137614298" className="bg-navy text-white px-5 py-2.5 rounded-sm hover:bg-navy/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold transition-all font-semibold flex items-center">
+                <Phone className="w-4 h-4 mr-2" aria-hidden="true" />
                 (213) 761-4298
               </a>
             </div>
@@ -30,10 +37,12 @@ function App() {
             <div className="md:hidden flex items-center">
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="text-navy p-2"
-                aria-label="Toggle menu"
+                className="text-navy p-2 rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+                aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+                aria-expanded={isMenuOpen}
+                aria-controls="mobile-menu"
               >
-                {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                {isMenuOpen ? <X className="w-6 h-6" aria-hidden="true" /> : <Menu className="w-6 h-6" aria-hidden="true" />}
               </button>
             </div>
           </div>
@@ -41,19 +50,20 @@ function App() {
 
         {/* Mobile Nav */}
         {isMenuOpen && (
-          <div className="md:hidden bg-white border-b border-gold/10 px-4 py-6 space-y-4 shadow-xl">
+          <div id="mobile-menu" className="md:hidden bg-white border-b border-gold/10 px-4 py-6 space-y-4 shadow-xl">
             <a href="#about" onClick={() => setIsMenuOpen(false)} className="block text-navy/80 hover:text-navy font-medium text-lg">About</a>
             <a href="#services" onClick={() => setIsMenuOpen(false)} className="block text-navy/80 hover:text-navy font-medium text-lg">Services</a>
             <a href="#areas" onClick={() => setIsMenuOpen(false)} className="block text-navy/80 hover:text-navy font-medium text-lg">Areas</a>
             <a href="tel:2137614298" className="flex items-center text-gold font-bold text-lg pt-2">
-              <Phone className="w-5 h-5 mr-2" />
+              <Phone className="w-5 h-5 mr-2" aria-hidden="true" />
               (213) 761-4298
             </a>
           </div>
         )}
       </nav>
 
-      {/* Hero Section */}
+      <main id="main-content" tabIndex={-1} className="outline-none">
+        {/* Hero Section */}
       <section className="relative h-[85vh] flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-navy/40 z-10"></div>
@@ -228,6 +238,7 @@ function App() {
           </div>
         </div>
       </section>
+      </main>
 
       {/* Footer */}
       <footer className="bg-navy py-16 text-white border-t border-gold/10">
