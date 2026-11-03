@@ -1,0 +1,3 @@
+## 2026-11-03 - Accessible Navigation Landmark and Scroll Offset Pattern
+**Learning:** Sticky headers (such as `h-20` / 80px) cause anchor navigation and keyboard skip links to obscure heading text unless paired with `scroll-padding-top` and `motion-safe:scroll-smooth` on `html`. Combining an accessible "Skip to main content" link with `<main id="main-content" tabIndex={-1} className="outline-none">` ensures screen reader and keyboard users can bypass repetitive navigation without intrusive focus rings on container focus.
+**Action:** Always configure `scroll-padding-top: 5rem` alongside `<main id="main-content" tabIndex={-1}>` and include dynamic `aria-expanded` and `aria-controls` for mobile menus.
